@@ -41,6 +41,9 @@ const quotes = [
 
 /***
  * `getRandomQuote` function
+ * 
+ * Funtion generates random quote given the length of the quote array
+ * 
 ***/
 
 function getRandomQuote() {
@@ -49,18 +52,19 @@ function getRandomQuote() {
   for(var i = 0; i < quotes.length; i++) {
     var randomQuote = quotes[getRandomNumber];
     }
-
   return randomQuote;
 }
 
 /***
  * `printQuote` function
+ * 
+ * Function prints the quotes stored in the quotes array with 'if' options for the citation and year.
 ***/
 
 function printQuote() {
   var displayRandomQuote = getRandomQuote();
   var htmlString = '';
-  
+
   htmlString = '<p class="quote">' + displayRandomQuote.quote + '</p>' + '<p class="source">' + displayRandomQuote.source;
   if ('citation' in displayRandomQuote) {
     htmlString += '<span class="citation">' + displayRandomQuote.citation + '</span>';
@@ -74,6 +78,8 @@ function printQuote() {
 }
 
 printQuote();
+
+// Refresh the page every 5 seconds.
 
 setTimeout(function() {
   location.reload();
