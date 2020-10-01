@@ -46,15 +46,34 @@ const quotes = [
  * 
 ***/
 
-function getRandomQuote() {
-  const getRandomNumber = Math.floor(Math.random() * quotes.length);
+let indexValue = 0;
 
-  for(var i = 0; i < quotes.length; i++) {
-    var randomQuote = quotes[getRandomNumber];
+function getRandom (upperLimit) {
+  
+  const randomNumber = Math.floor(Math.random() * upperLimit);
+  if (indexValue == randomNumber) {
+    const randomNumber = Math.floor(Math.random() * upperLimit);
+    } else {
+    return randomNumber;
     }
-  return randomQuote;
 }
 
+indexValue = getRandom(quotes.length);
+
+
+function getRandomQuote() {
+  quote = quotes[indexValue];
+  console.log(quote);
+  return quote;
+  
+
+  
+
+}
+ // for(var i = 0; i < quotes.length; i++) {
+  //   var randomQuote = quotes[getRandomNumber];
+  //   if {getRandomNumber.indexOf() != randomQuote} 
+  //   } 
 /***
  * `printQuote` function
  * 
@@ -62,15 +81,15 @@ function getRandomQuote() {
 ***/
 
 function printQuote() {
-  var displayRandomQuote = getRandomQuote();
+  var quote = getRandomQuote();
   var htmlString = '';
 
-  htmlString = '<p class="quote">' + displayRandomQuote.quote + '</p>' + '<p class="source">' + displayRandomQuote.source;
-  if ('citation' in displayRandomQuote) {
-    htmlString += '<span class="citation">' + displayRandomQuote.citation + '</span>';
+  htmlString = '<p class="quote">' + quote.quote + '</p>' + '<p class="source">' + quote.source;
+  if ('citation' in quote) {
+    htmlString += '<span class="citation">' + quote.citation + '</span>';
   };
-  if ('year' in displayRandomQuote){
-    htmlString += '<span class="year">' + displayRandomQuote.year + '</span>';
+  if ('year' in quote){
+    htmlString += '<span class="year">' + quote.year + '</span>';
   };
   htmlString += '</p>';
 
@@ -79,15 +98,17 @@ function printQuote() {
 
 printQuote();
 
+
+
 // Refresh the page every 5 seconds.
 
-setTimeout(function() {
-  location.reload();
-}, 5000);
+// setTimeout(function() {
+//   location.reload();
+// }, 5000);
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+// document.getElementById('load-quote').addEventListener("click", printQuote, false);
