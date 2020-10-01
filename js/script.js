@@ -53,8 +53,9 @@ function getRandom (upperLimit) {
   const randomNumber = Math.floor(Math.random() * upperLimit);
   if (indexValue == randomNumber) {
     const randomNumber = Math.floor(Math.random() * upperLimit);
-    } else {
     return randomNumber;
+    } else {
+      return randomNumber;
     }
 }
 
@@ -65,15 +66,8 @@ function getRandomQuote() {
   quote = quotes[indexValue];
   console.log(quote);
   return quote;
-  
-
-  
-
 }
- // for(var i = 0; i < quotes.length; i++) {
-  //   var randomQuote = quotes[getRandomNumber];
-  //   if {getRandomNumber.indexOf() != randomQuote} 
-  //   } 
+
 /***
  * `printQuote` function
  * 
@@ -102,9 +96,9 @@ printQuote();
 
 // Refresh the page every 5 seconds.
 
-// setTimeout(function() {
-//   location.reload();
-// }, 5000);
+setTimeout(function() {
+  location.reload();
+}, 5000);
 
 /***
  * click event listener for the print quote button
