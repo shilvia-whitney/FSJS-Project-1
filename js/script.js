@@ -38,16 +38,13 @@ const quotes = [
   }
 ];
 
-
 /***
  * `getRandomQuote` function
- * 
  * Funtion generates random quote given the length of the quote array
- * 
 ***/
 
-
 function getRandom () {
+  // Function getRandom generates random number and repeats function until its different from previous roll.
   const randomNumber = Math.floor(Math.random() * quotes.length);
   if (getRandom == randomNumber) {
     const randomNumber = Math.floor(Math.random() * quotes.length);
@@ -58,23 +55,21 @@ function getRandom () {
 };
 
 function getRandomQuote() {
+  // Function getRandomeQuote takes the number generated from getRandom to return a quote.
   randQuote = quotes[getRandom()];
   return randQuote;
 };
 
-
-let quoteBox = document.getElementById('quote-box');
-
 /***
  * `printQuote` function
- * 
  * Function prints the quotes stored in the quotes array with 'if' options for the citation and year.
 ***/
 
 function printQuote() {
+  // Function printQuote calls for HTML element where the random quote generated from the getRandomQuote will be displayed and formatted.
+  let quoteBox = document.getElementById('quote-box');
   let randomQuote = getRandomQuote();
   let htmlString = '';
- 
 
   htmlString = '<p class="quote">' + randomQuote.quote + '</p>' + '<p class="source">' + randomQuote.source;
   if ('citation' in randomQuote) {
@@ -85,9 +80,7 @@ function printQuote() {
   };
   htmlString += '</p>';
 
-
   quoteBox.innerHTML = htmlString;
-  
 }
 
 printQuote();
