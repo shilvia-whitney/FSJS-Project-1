@@ -48,24 +48,21 @@ const quotes = [
 
 let indexValue = 0;
 
-function getRandom (upperLimit) {
-  
-  const randomNumber = Math.floor(Math.random() * upperLimit);
-  if (indexValue == randomNumber) {
-    const randomNumber = Math.floor(Math.random() * upperLimit);
+function getRandom () {
+  const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
+  if (getRandom == randomNumber) {
+    const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
     return randomNumber;
     } else {
       return randomNumber;
     }
 }
 
-indexValue = getRandom(quotes.length);
-
+indexValue = getRandom();
 
 function getRandomQuote() {
-  quote = quotes[indexValue];
-  console.log(quote);
-  return quote;
+  randQuote = quotes[indexValue];
+  return randQuote;
 }
 
 /***
@@ -75,15 +72,15 @@ function getRandomQuote() {
 ***/
 
 function printQuote() {
-  var quote = getRandomQuote();
+  var randomQuote = getRandomQuote();
   var htmlString = '';
 
-  htmlString = '<p class="quote">' + quote.quote + '</p>' + '<p class="source">' + quote.source;
-  if ('citation' in quote) {
-    htmlString += '<span class="citation">' + quote.citation + '</span>';
+  htmlString = '<p class="quote">' + randomQuote.quote + '</p>' + '<p class="source">' + randomQuote.source;
+  if ('citation' in randomQuote) {
+    htmlString += '<span class="citation">' + randomQuote.citation + '</span>';
   };
-  if ('year' in quote){
-    htmlString += '<span class="year">' + quote.year + '</span>';
+  if ('year' in randomQuote){
+    htmlString += '<span class="year">' + randomQuote.year + '</span>';
   };
   htmlString += '</p>';
 
@@ -96,13 +93,13 @@ printQuote();
 
 // Refresh the page every 5 seconds.
 
-setTimeout(function() {
-  location.reload();
-}, 5000);
+// setTimeout(function() {
+//   location.reload();
+// }, 5000);
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
