@@ -46,24 +46,24 @@ const quotes = [
  * 
 ***/
 
-let indexValue = 0;
 
 function getRandom () {
-  const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
+  const randomNumber = Math.floor(Math.random() * quotes.length);
   if (getRandom == randomNumber) {
-    const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
+    const randomNumber = Math.floor(Math.random() * quotes.length);
     return randomNumber;
     } else {
       return randomNumber;
     }
-}
-
-indexValue = getRandom();
+};
 
 function getRandomQuote() {
-  randQuote = quotes[indexValue];
+  randQuote = quotes[getRandom()];
   return randQuote;
-}
+};
+
+
+let quoteBox = document.getElementById('quote-box');
 
 /***
  * `printQuote` function
@@ -72,8 +72,9 @@ function getRandomQuote() {
 ***/
 
 function printQuote() {
-  var randomQuote = getRandomQuote();
-  var htmlString = '';
+  let randomQuote = getRandomQuote();
+  let htmlString = '';
+ 
 
   htmlString = '<p class="quote">' + randomQuote.quote + '</p>' + '<p class="source">' + randomQuote.source;
   if ('citation' in randomQuote) {
@@ -84,18 +85,12 @@ function printQuote() {
   };
   htmlString += '</p>';
 
-  document.getElementById('quote-box').innerHTML = htmlString;
+
+  quoteBox.innerHTML = htmlString;
+  
 }
 
 printQuote();
-
-
-
-// Refresh the page every 5 seconds.
-
-// setTimeout(function() {
-//   location.reload();
-// }, 5000);
 
 /***
  * click event listener for the print quote button
